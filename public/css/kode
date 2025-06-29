@@ -1,0 +1,200 @@
+
+/* Pastikan html dan body mengisi seluruh tinggi layar */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Agar elemen diatur dalam kolom (vertikal) */
+}
+
+/* Agar header dan footer memiliki warna dan ruang */
+header, footer {
+    background-color: #AB886D; /* Coklat */
+    color: white; /* Teks putih */
+    padding: 15px 0; /* Padding untuk header dan footer */
+    text-align: center; /* Menyusun teks di tengah */
+}
+
+/* .bg-image sebagai konten utama */
+.bg-image {
+    position: relative;
+    background-size: cover; /* Gambar memenuhi area */
+    background-position: center; /* Pusatkan gambar */
+    background-repeat: no-repeat;
+    flex-grow: 1; /* Memastikan elemen ini mengambil ruang yang tersisa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: 100vh; /* Menyesuaikan tinggi layar */
+}
+
+/* Agar teks di atas gambar tetap terbaca */
+.bg-image h2, .bg-image p {
+    z-index: 2;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Efek bayangan agar teks lebih jelas */
+}
+
+/* Overlay hitam transparan di gambar latar */
+.bg-image::before {
+    content: ''; /* Overlay hitam transparan */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Warna overlay hitam semi-transparan */
+    z-index: 1;
+}
+
+/* Pastikan navbar dan tombol hamburger terlihat */
+/* Sidebar utama */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Mulai dari luar layar kanan */
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f0ec;
+    transition: right 0.3s ease;
+    z-index: 9999;
+    padding-top: 20px; /* Memberikan jarak di atas */
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2); /* Memberikan efek bayangan */
+  }
+  
+  /* Sidebar saat ditampilkan */
+  .sidebar.show {
+    right: 0; /* Pindahkan sidebar ke layar */
+  }
+  
+  /* Mengatur item di dalam sidebar */
+  .sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar-nav .nav-item {
+    margin: 15px 0;
+  }
+  
+  .sidebar-nav .nav-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  /* Gaya untuk tombol hamburger */
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+  
+  .navbar-toggler-icon {
+    background-color: #D6C0B3;
+    width: 30px;
+    height: 25px;
+    display: inline-block;
+    background-size: 100%;
+  }
+  
+ .navbar-bg {
+    background-image: url('/images/bann2.png'); /* Ganti dengan path gambar */
+    background-size: cover; /* Membuat gambar memenuhi area */
+    background-position: center; /* Gambar berada di tengah */
+    background-repeat: no-repeat; /* Tidak mengulang gambar */
+    color: white; /* Warna teks navbar */
+}
+
+  
+  .navbar-title {
+      font-family: Arial, sans-serif;
+      color: #612626;
+      font-size: 1.5rem;
+      font-weight: normal;
+      text-shadow: none;
+      cursor: default;
+      text-align: center;
+  }  
+
+/* Gaya untuk halaman About Us */
+.about-us {
+    background-color: #f8f9fa; /* Latar belakang halaman */
+    color: #333; /* Warna teks */
+    padding: 20px; 
+    flex-grow: 1; /* Memastikan elemen ini mengambil ruang yang tersisa */
+    height: auto; /* Tinggi halaman disesuaikan dengan konten */
+}
+
+/* Judul About Us */
+.about-title {
+    font-size: 2rem;
+    color: #AB886D; /* Coklat */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraf dalam About Us */
+.about-us p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px; /* Batasi lebar teks agar tidak terlalu lebar */
+    margin: 0 auto; /* Rata tengah */
+}
+
+/* Gambar dalam About Us */
+.about-us img {
+    width: 70%; /* Mengurangi ukuran gambar menjadi 80% dari lebar kontainer */
+    max-width: 500px; /* Batasi gambar agar tidak terlalu besar */
+    height: auto; /* Menjaga rasio gambar */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px; /* Memberikan jarak di atas gambar */
+    object-fit: cover; /* Menjaga gambar menutupi area tanpa terdistorsi */
+    display: block;
+    margin-left: 22%;
+    margin-right: 0; /* Rata tengah gambar */
+}
+.social-links {
+    display: flex; /* Menyusun ikon secara horizontal */
+    justify-content: center; /* Menyusun ikon di tengah */
+    gap: 10px; /* Menambahkan sedikit jarak antar ikon */
+    margin-top: 20px; /* Memberikan sedikit ruang antara konten utama dan ikon sosial */
+}
+
+.social-icon {
+    width: 45px !important;
+    height: 45px !important;
+    object-fit: cover !important;
+    display: inline-block;
+}
+
+.social-icons {
+    text-align: left;
+    display: flex; /* Membuat logo dalam satu baris */
+    gap: 30px; /* Jarak default antar logo */
+    padding-left: 5px; /* Jarak container dari sisi kiri */
+    align-items: flex-start; /* Mengatur posisi logo di bagian atas */
+    margin-top: 5px; /* Atur jarak atas semua ikon */
+}
+.social-icon.instagram {
+    margin-top: -9px; /* Jarak atas khusus untuk Instagram */
+}
+
+.social-icon.tiktok {
+    margin-top: -9px; /* Jarak atas khusus untuk TikTok */
+}
+
+.social-icon.maps {
+    margin-top: -9px; /* Jarak atas khusus untuk Maps */
+}
+
+/* Footer akan selalu di bawah */
+footer {
+    margin-top: auto; /* Footer berada di bawah */
+    padding: 20px;
+}

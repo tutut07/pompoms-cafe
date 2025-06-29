@@ -1,0 +1,314 @@
+
+/* Pastikan html dan body mengisi seluruh tinggi layar */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Agar elemen diatur dalam kolom (vertikal) */
+}
+
+/* Agar header dan footer memiliki warna dan ruang */
+header, footer {
+    background-color: #AB886D; /* Coklat */
+    color: white; /* Teks putih */
+    padding: 15px 0; /* Padding untuk header dan footer */
+    text-align: center; /* Menyusun teks di tengah */
+}
+
+/* .bg-image sebagai konten utama */
+.bg-image {
+    position: relative;
+    background-size: cover; /* Gambar memenuhi area */
+    background-position: center; /* Pusatkan gambar */
+    background-repeat: no-repeat;
+    flex-grow: 1; /* Memastikan elemen ini mengambil ruang yang tersisa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    height: 100vh; /* Menyesuaikan tinggi layar */
+}
+
+/* Agar teks di atas gambar tetap terbaca */
+.bg-image h2, .bg-image p {
+    z-index: 2;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Efek bayangan agar teks lebih jelas */
+}
+
+/* Overlay hitam transparan di gambar latar */
+.bg-image::before {
+    content: ''; /* Overlay hitam transparan */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Warna overlay hitam semi-transparan */
+    z-index: 1;
+}
+
+/* Pastikan navbar dan tombol hamburger terlihat */
+/* Sidebar utama */
+/* Sidebar utama */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px; /* Mulai dari luar layar kanan */
+    width: 250px;
+    height: 100vh;
+    background-color: #f8f0ec;
+    transition: right 0.3s ease; /* Animasi geser */
+    z-index: 9999;
+    padding-top: 20px;
+    box-shadow: -4px 0 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Sidebar saat ditampilkan */
+.sidebar.show {
+    right: 0; /* Pindahkan sidebar ke layar */
+}
+
+/* Mengatur item di dalam sidebar */
+.sidebar-nav {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertikal center untuk menu */
+    align-items: center; /* Horizontal center untuk menu */
+    width: 100%;
+}
+
+.sidebar-nav .nav-item {
+    margin: 15px 0;
+    text-align: center; /* Agar teks menu terpusat */
+}
+
+/* Gaya untuk link dalam sidebar */
+.sidebar-nav .nav-item a {
+    color: #333;
+    text-decoration: none;
+    font-size: 1.2rem;
+    display: block; /* Membuat link menjadi blok sehingga bisa menggunakan margin */
+    padding: 10px 20px; /* Memberikan padding pada link untuk menambah ruang */
+    border-radius: 5px; /* Membuat sudut link sedikit melengkung */
+    transition: background-color 0.3s;
+}
+
+.sidebar-nav .nav-item a:hover {
+    background-color: #D6C0B3; /* Memberikan warna saat hover */
+    color: #fff; /* Teks putih saat hover */
+}
+
+/* Gaya untuk tombol hamburger */
+.navbar-bg {
+    background-image: url('/images/bann2.png'); /* Ganti dengan path gambar */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.navbar-title {
+    font-family: Arial, sans-serif;
+    color: #612626;
+    font-size: 1.5rem;
+    font-weight: normal;
+    text-shadow: none;
+    cursor: default;
+    text-align: center;
+}
+
+
+/* Gaya untuk halaman About Us */
+.about-us {
+    background-color: #f8f9fa; /* Latar belakang halaman */
+    color: #333; /* Warna teks */
+    padding: 20px; 
+    flex-grow: 1; /* Memastikan elemen ini mengambil ruang yang tersisa */
+    height: auto; /* Tinggi halaman disesuaikan dengan konten */
+}
+
+/* Judul About Us */
+.about-title {
+    font-size: 2rem;
+    color: #AB886D; /* Coklat */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Paragraf dalam About Us */
+.about-us p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    max-width: 800px; /* Batasi lebar teks agar tidak terlalu lebar */
+    margin: 0 auto; /* Rata tengah */
+}
+
+/* Gambar dalam About Us */
+.about-us img {
+    width: 70%; /* Mengurangi ukuran gambar menjadi 80% dari lebar kontainer */
+    max-width: 500px; /* Batasi gambar agar tidak terlalu besar */
+    height: auto; /* Menjaga rasio gambar */
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 5px; /* Memberikan jarak di atas gambar */
+    object-fit: cover; /* Menjaga gambar menutupi area tanpa terdistorsi */
+    display: block;
+    margin-left: 22%;
+    margin-right: 0; /* Rata tengah gambar */
+}
+.social-links {
+    display: flex; /* Menyusun ikon secara horizontal */
+    justify-content: center; /* Menyusun ikon di tengah */
+    gap: 10px; /* Menambahkan sedikit jarak antar ikon */
+    margin-top: 20px; /* Memberikan sedikit ruang antara konten utama dan ikon sosial */
+}
+
+.social-icon {
+    width: 45px !important;
+    height: 45px !important;
+    object-fit: cover !important;
+    display: inline-block;
+}
+
+.social-icons {
+    text-align: left;
+    display: flex; /* Membuat logo dalam satu baris */
+    gap: 30px; /* Jarak default antar logo */
+    padding-left: 5px; /* Jarak container dari sisi kiri */
+    align-items: flex-start; /* Mengatur posisi logo di bagian atas */
+    margin-top: 5px; /* Atur jarak atas semua ikon */
+}
+.social-icon.instagram {
+    margin-top: -9px; /* Jarak atas khusus untuk Instagram */
+}
+
+.social-icon.tiktok {
+    margin-top: -9px; /* Jarak atas khusus untuk TikTok */
+}
+
+.social-icon.maps {
+    margin-top: -9px; /* Jarak atas khusus untuk Maps */
+}
+/* Kontainer Utama Halaman Contact Us */
+.container.contact-container {
+    background-color: #E7CCCC;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 50px;
+}
+
+/* Judul Halaman */
+.container.contact-container h1.text-center {
+    color: #333;
+    font-weight: bold;
+    font-family: 'Arial', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Sub-Judul dan Informasi Kontak */
+.container.contact-container h3 {
+    color: #5a5a5a;
+    font-family: 'Verdana', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+}
+
+.container.contact-container ul.list-unstyled {
+    padding: 0;
+    list-style-type: none;
+    margin: 15px 0;
+}
+
+.container.contact-container ul.list-unstyled li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #444;
+}
+
+.container.contact-container ul.list-unstyled a {
+    text-decoration: none;
+    color: #DEAC80;
+    font-weight: bold;
+}
+
+.container.contact-container ul.list-unstyled a:hover {
+    color: #DEAC80;
+    text-decoration: underline;
+}
+
+/* Formulir Kontak */
+.container.contact-container form {
+    background-color: #e19c9c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.container.contact-container .form-label {
+    color: #333;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.container.contact-container .form-control {
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 14px;
+}
+
+.container.contact-container .form-control:focus {
+    border-color: #DEAC80;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
+}
+
+/* Tombol Kirim */
+.container.contact-container button[type="submit"] {
+    background-color: #DEAC80;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+.container.contact-container button[type="submit"]:hover {
+    background-color: #DEAC80;
+    transform: scale(1.05);
+}
+
+/* Footer akan selalu di bawah */
+footer {
+    margin-top: auto; /* Footer berada di bawah */
+    padding: 20px;
+}
+
+/* Menyembunyikan panah pada input number di semua browser */
+input[type="number"] {
+    -moz-appearance: textfield; /* Firefox */
+    -webkit-appearance: none; /* Chrome/Safari */
+    appearance: none; /* Semua browser */
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none; /* Chrome/Safari */
+    margin: 0; /* Menghilangkan margin default */
+}
+
+input[type="number"]::-moz-inner-spin-button,
+input[type="number"]::-moz-outer-spin-button {
+    display: none; /* Firefox */
+}
+
